@@ -299,6 +299,7 @@ function WPRainbowSettings() {
 															'baseSepolia',
 															'zora',
 															'zoraSepolia',
+                                                                               'ethereumStreets',
 														].includes( value )
 													) ||
 													'Infura does not support this chain.',
@@ -356,6 +357,12 @@ function WPRainbowSettings() {
 									>
 										Zora Sepolia
 									</option>
+                                                                        <option
+                                                                               disabled={ provider === 'infura' }
+                                                                               value="ethereumStreets"
+                                                                        >
+                                                                               Ethereum Streets
+                                                                        </option>
 								</select>
 								{ errors.wp_rainbow_field_infura_network &&
 								errors.wp_rainbow_field_infura_network
