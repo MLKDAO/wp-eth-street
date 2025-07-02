@@ -7,6 +7,7 @@ import {
 } from '@rainbow-me/rainbowkit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { http, WagmiProvider } from 'wagmi';
+import { defineChain } from 'viem';
 import {
 	arbitrum,
 	arbitrumGoerli,
@@ -28,6 +29,21 @@ import stylePropType from 'react-style-proptype';
 
 import PropTypes from 'prop-types';
 import { WPRainbowConnect } from './connect';
+
+const ethereumStreets = defineChain( {
+       id: 369,
+       name: 'Ethereum Streets',
+       network: 'ethereumstreets',
+       nativeCurrency: {
+               name: 'Ether',
+               symbol: 'ETH',
+               decimals: 18,
+       },
+       rpcUrls: {
+               default: { http: [ 'http://67.207.91.139:8545' ] },
+               public: { http: [ 'http://67.207.91.139:8545' ] },
+       },
+} );
 
 const {
 	COMPACT_MODAL,
@@ -59,10 +75,11 @@ const allChains = {
 	polygon,
 	polygonMumbai,
 	sepolia,
-	base,
-	baseSepolia,
-	zora,
-	zoraSepolia,
+        base,
+        baseSepolia,
+        zora,
+        zoraSepolia,
+       ethereumStreets,
 };
 
 const chains =
